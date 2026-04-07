@@ -5,6 +5,7 @@ import App from './App.jsx'
 import './index.css'
 import './styles/layout.css'
 import './styles/home.css'
+import './styles/auth.css'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
