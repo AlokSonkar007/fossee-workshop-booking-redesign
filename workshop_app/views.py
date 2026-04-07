@@ -168,7 +168,7 @@ def user_register(request):
 
 @login_required
 def workshop_status_coordinator(request):
-    """ Workshops proposed by Coordinator """
+    """Show workshops proposed by the current coordinator."""
     user = request.user
     if is_instructor(user):
         return redirect(get_landing_page(user))
