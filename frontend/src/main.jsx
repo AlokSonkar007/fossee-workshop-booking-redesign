@@ -7,6 +7,7 @@ import './styles/layout.css'
 import './styles/home.css'
 import './styles/auth.css'
 import './styles/workshops.css'
+import './styles/propose.css'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
