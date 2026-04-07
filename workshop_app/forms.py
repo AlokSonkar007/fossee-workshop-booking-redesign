@@ -20,9 +20,7 @@ PWD_CHARS = letters + punctuation + digits
 
 
 class UserRegistrationForm(forms.Form):
-    """A Class to create new form for User's Registration.
-    It has the various fields and functions required to register
-    a new user to the system"""
+    """Registration form for new users."""
     required_css_class = 'required'
     errorlist_css_class = 'errorlist'
     username = forms.CharField(max_length=32, help_text='''Letters, digits,
@@ -104,7 +102,7 @@ class UserRegistrationForm(forms.Form):
 
 
 class UserLoginForm(forms.Form):
-    """Creates a form which will allow the user to log into the system."""
+    """Login form for users."""
 
     username = forms.CharField(max_length=32,
                                widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Username'}))
@@ -126,9 +124,7 @@ class UserLoginForm(forms.Form):
 
 
 class WorkshopForm(forms.ModelForm):
-    """
-    Coordinators will propose a workshop and date 
-    """
+    """Form for coordinator workshop requests."""
     errorlist_css_class = 'errorlist'
 
     def __init__(self, *args, **kwargs):
@@ -154,9 +150,7 @@ class WorkshopForm(forms.ModelForm):
 
 
 class CommentsForm(forms.ModelForm):
-    """
-    Users will post comments on workshops
-    """
+    """Form for workshop comments."""
 
     def __init__(self, *args, **kwargs):
         kwargs.setdefault('label_suffix', '')
@@ -200,7 +194,7 @@ class AttachmentFileForm(forms.ModelForm):
 
 
 class ProfileForm(forms.ModelForm):
-    """ profile form for coordinators and instructors """
+    """Profile edit form for users."""
 
     class Meta:
         model = Profile

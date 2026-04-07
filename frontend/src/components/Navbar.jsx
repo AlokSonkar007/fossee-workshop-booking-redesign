@@ -41,6 +41,9 @@ function Navbar() {
           <NavLink to="/workshop-types" className={getNavClass} onClick={closeMenu}>
             Workshop Types
           </NavLink>
+          <NavLink to="/statistics" className={getNavClass} onClick={closeMenu}>
+            Statistics
+          </NavLink>
           <NavLink to="/profile" className={getNavClass} onClick={closeMenu}>
             Profile
           </NavLink>

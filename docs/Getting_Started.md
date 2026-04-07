@@ -1,42 +1,43 @@
-# Guide to install and get this website running
+# Getting Started
 
-### Follow below given Steps to get started
-> __NOTE__: Use Python3 
-1. Clone this repo.
+Follow these steps to run the site locally.
+
+## Setup
+
+> Use Python 3.
+
+1. Clone the repository:
     > git clone https://github.com/FOSSEE/workshop_booking.git
 
-2. Create a virtual environment and install all the required packages from requirements.txt
-    > pip install -r requirements.txt 
+2. Create a virtual environment and install dependencies:
+    > pip install -r requirements.txt
 
-3. Make Migrations and Migrate
-    > python manage.py makemigrations\
+3. Make migrations and migrate:
+    > python manage.py makemigrations
     > python manage.py migrate
 
-4. Create Super User
+4. Create a superuser:
     > python manage.py createsuperuser
 
-5. Start Server
+5. Start the development server:
     > python manage.py runserver
 
-6. Goto admin page and login using superuser credentials
-    > localhost:8000/admin
+6. Open the admin page and log in with the superuser account:
+    > http://localhost:8000/admin
 
-7. Goto Groups and create one group called __instructor__ and give it all permissions.
+7. Create a group named __instructor__ and grant it the required permissions.
 
-8. By default when a user registers, he is assigned a coordinator position, using the admin panel set the required users profile position as instructor and add him/her in instructor group along with the required permissions.
+8. After registration, a user is assigned the coordinator role by default. Use the admin panel to change a user's profile to instructor and add them to the instructor group.
 
-9. Under *settings.py* file see to it that all required variables are set then you're good to go!
+9. Make sure the required email variables are set in `settings.py` before using email features.
 
-### Instructor specific steps
+## Instructor steps
 
-1. An instructor can create workshops as per his/her availibility in __Create Workshop__ tab.
+1. Instructors can create workshops from the Create Workshop tab.
+2. They can view monthly counts, upcoming workshops, and statistics.
+3. They can also comment on coordinator profiles from Profile Statistics or Workshop Status.
 
-2. Instructor can see monthly workshop count, upcoming workshop etc. in Statistics > Workshop Statistics
+## Coordinator steps
 
-3. Instructors can view and post comments on coordinator's profile from Profile Statistics or Workshop Status page.
-
-
-### Coordinator specific steps
-
-1. A coordinator can sent workshop proposal based on his/her convenience under Workshops > Propose a Workshop option.
+1. Coordinators can propose a workshop date under Workshops > Propose a Workshop.
 

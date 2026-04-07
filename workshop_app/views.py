@@ -43,7 +43,7 @@ def is_email_checked(user):
 
 
 def is_instructor(user):
-    """Check if the user is having instructor rights"""
+    """Return True when the user belongs to the instructor group."""
     return user.groups.filter(name='instructor').exists()
 
 
@@ -57,8 +57,7 @@ def get_landing_page(user):
 # View functions
 
 def index(request):
-    """Landing Page : Redirect to login page if not logged in
-                      Redirect to respective landing page according to position"""
+    """Redirect users to login or to their dashboard."""
     user = request.user
     if user.is_authenticated and is_email_checked(user):
         return redirect(get_landing_page(user))
@@ -68,9 +67,9 @@ def index(request):
 
 # User views
 
-# TODO: Forgot password workflow
+# TODO: add forgot-password workflow
 def user_login(request):
-    """User Login"""
+    """Show login form and authenticate users."""
     user = request.user
     if user.is_superuser:
         return redirect('/admin')
@@ -94,7 +93,7 @@ def user_login(request):
 
 
 def user_logout(request):
-    """Logout"""
+    """Log the current user out."""
     logout(request)
     return render(request, 'workshop_app/logout.html')
 
@@ -135,7 +134,7 @@ def activate_user(request, key=None):
 
 
 def user_register(request):
-    """User Registration form"""
+    """Show the user registration form."""
     if request.method == 'POST':
         form = UserRegistrationForm(request.POST)
         if form.is_valid():
@@ -182,7 +181,7 @@ def workshop_status_coordinator(request):
 
 @login_required
 def workshop_status_instructor(request):
-    """ Workshops to accept and accepted by Instructor """
+    """Workshops for instructors to manage."""
     user = request.user
     if not is_instructor(user):
         return redirect(get_landing_page(user))
@@ -266,7 +265,7 @@ def change_workshop_date(request, workshop_id):
 
 @login_required
 def propose_workshop(request):
-    """Coordinator proposed a workshop and date"""
+    """Submit a new workshop proposal."""
 
     user = request.user
     if user.is_superuser:
@@ -311,7 +310,7 @@ def propose_workshop(request):
 
 @login_required
 def workshop_type_details(request, workshop_type_id):
-    """Gives the types of workshop details """
+    """Show the details for a workshop type."""
     user = request.user
     if user.is_superuser:
         return redirect("/admin")
@@ -398,7 +397,7 @@ def workshop_type_tnc(request, workshop_type_id):
 
 
 def workshop_type_list(request):
-    """Gives the details for types of workshops."""
+    """List available workshop types."""
     user = request.user
     if user.is_superuser:
         return redirect("/admin")
@@ -460,7 +459,7 @@ def add_workshop_type(request):
 
 @login_required
 def view_profile(request, user_id):
-    """Instructor can view coordinator profile """
+    """Instructor view for a coordinator profile."""
     user = request.user
     if is_instructor(user) and is_email_checked(user):
         coordinator_profile = Profile.objects.get(user_id=user_id)
@@ -475,7 +474,7 @@ def view_profile(request, user_id):
 
 @login_required
 def view_own_profile(request):
-    """User can view own profile """
+    """View and edit the current user's profile."""
     user = request.user
     if user.is_superuser:
         return redirect("admin")

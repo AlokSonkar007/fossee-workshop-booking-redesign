@@ -95,7 +95,7 @@ def attachments(instance, filename):
 
 
 class Profile(models.Model):
-    """Profile for users(instructors and coordinators)"""
+    """User profile for instructors and coordinators."""
 
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=32, blank=True, choices=title)
@@ -131,9 +131,7 @@ class Profile(models.Model):
 
 
 class WorkshopType(models.Model):
-    """"Admin creates types of workshops which can be used by the instructor
-        to create workshops.
-    """
+    """Workshop type records created by admins."""
 
     name = models.CharField(max_length=120)
     description = models.TextField()
@@ -186,9 +184,7 @@ class WorkshopManager(models.Manager):
 
 
 class Workshop(models.Model):
-    """
-        Contains details of workshops
-    """
+    """Details for scheduled workshops."""
     uid = models.UUIDField(default=uuid.uuid4, unique=True, editable=False)
     coordinator = models.ForeignKey(User, on_delete=models.CASCADE)
     instructor = models.ForeignKey(
@@ -222,9 +218,7 @@ class Workshop(models.Model):
 
 
 class Testimonial(models.Model):
-    """
-    Contains Testimonals of Workshops
-    """
+    """Workshop testimonials."""
 
     name = models.CharField(max_length=150)
     institute = models.CharField(max_length=255)
@@ -236,9 +230,7 @@ class Testimonial(models.Model):
 
 
 class Comment(models.Model):
-    """
-    Contains comments posted by users on workshop instances
-    """
+    """User comments on workshops."""
 
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     comment = models.TextField()
@@ -251,9 +243,7 @@ class Comment(models.Model):
 
 
 class Banner(models.Model):
-    """
-    Add HTML for banner display on homepage
-    """
+    """Homepage banner content."""
     title = models.CharField(max_length=500)
     html = models.TextField()
     active = models.BooleanField()

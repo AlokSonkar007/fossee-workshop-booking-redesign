@@ -7,6 +7,7 @@ import WorkshopTypesPage from '../pages/WorkshopTypesPage'
 import ProposeWorkshopPage from '../pages/ProposeWorkshopPage'
 import ProfilePage from '../pages/ProfilePage'
 import WorkshopStatusPage from '../pages/WorkshopStatusPage'
+import StatisticsPage from '../pages/StatisticsPage'
 
 function AppRoutes() {
   return (
@@ -19,6 +20,7 @@ function AppRoutes() {
         <Route path="propose-workshop" element={<ProposeWorkshopPage />} />
         <Route path="profile" element={<ProfilePage />} />
         <Route path="workshop-status" element={<WorkshopStatusPage />} />
+        <Route path="statistics" element={<StatisticsPage />} />
       </Route>
     </Routes>
   )
