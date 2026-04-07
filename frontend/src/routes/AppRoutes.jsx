@@ -1,13 +1,21 @@
 import { Routes, Route } from 'react-router-dom'
-
-function Home() {
-  return <h1 style={{ padding: '40px' }}>Home</h1>
-}
+import MainLayout from '../layouts/MainLayout'
+import HomePage from '../pages/HomePage'
+import LoginPage from '../pages/LoginPage'
+import RegisterPage from '../pages/RegisterPage'
+import WorkshopTypesPage from '../pages/WorkshopTypesPage'
+import ProposeWorkshopPage from '../pages/ProposeWorkshopPage'
 
 function AppRoutes() {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/" element={<MainLayout />}>
+        <Route index element={<HomePage />} />
+        <Route path="login" element={<LoginPage />} />
+        <Route path="register" element={<RegisterPage />} />
+        <Route path="workshop-types" element={<WorkshopTypesPage />} />
+        <Route path="propose-workshop" element={<ProposeWorkshopPage />} />
+      </Route>
     </Routes>
   )
 }
