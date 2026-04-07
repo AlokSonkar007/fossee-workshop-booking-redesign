@@ -50,7 +50,7 @@ The redesign focuses on:
 ### 1. Clone the repository
 ```bash
 git clone <your-repo-link>
-cd workshop_booking
+cd fossee-workshop-booking-redesign
 ```
 
 ### 2. Navigate to frontend
