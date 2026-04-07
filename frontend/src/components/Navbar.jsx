@@ -38,6 +38,12 @@ function Navbar() {
           <NavLink to="/workshop-types" className="nav-link" onClick={closeMenu}>
             Workshop Types
           </NavLink>
+          <NavLink to="/profile" className="nav-link" onClick={closeMenu}>
+            Profile
+          </NavLink>
+          <NavLink to="/workshop-status" className="nav-link" onClick={closeMenu}>
+            Workshop Status
+          </NavLink>
           <NavLink to="/propose-workshop" className="nav-link" onClick={closeMenu}>
             Propose Workshop
           </NavLink>

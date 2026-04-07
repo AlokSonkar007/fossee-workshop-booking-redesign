@@ -5,6 +5,8 @@ import LoginPage from '../pages/LoginPage'
 import RegisterPage from '../pages/RegisterPage'
 import WorkshopTypesPage from '../pages/WorkshopTypesPage'
 import ProposeWorkshopPage from '../pages/ProposeWorkshopPage'
+import ProfilePage from '../pages/ProfilePage'
+import WorkshopStatusPage from '../pages/WorkshopStatusPage'
 
 function AppRoutes() {
   return (
@@ -15,6 +17,8 @@ function AppRoutes() {
         <Route path="register" element={<RegisterPage />} />
         <Route path="workshop-types" element={<WorkshopTypesPage />} />
         <Route path="propose-workshop" element={<ProposeWorkshopPage />} />
+        <Route path="profile" element={<ProfilePage />} />
+        <Route path="workshop-status" element={<WorkshopStatusPage />} />
       </Route>
     </Routes>
   )
