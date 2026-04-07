@@ -18,29 +18,47 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
+  gap: 2rem;
   min-height: 72px;
+}
+
+.nav-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .brand {
   font-size: 1.25rem;
   font-weight: 800;
+  white-space: nowrap;
 }
 
 .brand span {
   color: #93c5fd;
 }
 
+.menu-toggle {
+  display: none;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: transparent;
+  color: white;
+  border-radius: 10px;
+  padding: 0.55rem 0.8rem;
+  cursor: pointer;
+}
+
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  flex-wrap: wrap;
+  gap: 1.5rem;
+  flex-wrap: nowrap;
 }
 
 .nav-link {
   color: rgba(255, 255, 255, 0.9);
   font-weight: 500;
+  white-space: nowrap;
 }
 
 .nav-link.active {
@@ -62,14 +80,34 @@
   color: #94a3b8;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .site-header .container {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
     padding: 1rem 0;
+    min-height: auto;
+  }
+
+  .nav-top-row {
+    width: 100%;
+  }
+
+  .menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .nav-links {
-    gap: 0.75rem;
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.85rem;
+    width: 100%;
+    padding-top: 0.75rem;
+  }
+
+  .nav-links.show-menu {
+    display: flex;
   }
 }
