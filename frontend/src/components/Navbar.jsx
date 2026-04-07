@@ -6,6 +6,9 @@ function Navbar() {
 
   const closeMenu = () => setMenuOpen(false)
 
+  const getNavClass = ({ isActive }) =>
+    isActive ? 'nav-link active' : 'nav-link'
+
   return (
     <header className="site-header">
       <div className="container">
@@ -26,25 +29,25 @@ function Navbar() {
         </div>
 
         <nav className={`nav-links ${menuOpen ? 'show-menu' : ''}`}>
-          <NavLink to="/" className="nav-link" onClick={closeMenu}>
+          <NavLink to="/" className={getNavClass} onClick={closeMenu}>
             Home
           </NavLink>
-          <NavLink to="/login" className="nav-link" onClick={closeMenu}>
+          <NavLink to="/login" className={getNavClass} onClick={closeMenu}>
             Login
           </NavLink>
-          <NavLink to="/register" className="nav-link" onClick={closeMenu}>
+          <NavLink to="/register" className={getNavClass} onClick={closeMenu}>
             Register
           </NavLink>
-          <NavLink to="/workshop-types" className="nav-link" onClick={closeMenu}>
+          <NavLink to="/workshop-types" className={getNavClass} onClick={closeMenu}>
             Workshop Types
           </NavLink>
-          <NavLink to="/profile" className="nav-link" onClick={closeMenu}>
+          <NavLink to="/profile" className={getNavClass} onClick={closeMenu}>
             Profile
           </NavLink>
-          <NavLink to="/workshop-status" className="nav-link" onClick={closeMenu}>
+          <NavLink to="/workshop-status" className={getNavClass} onClick={closeMenu}>
             Workshop Status
           </NavLink>
-          <NavLink to="/propose-workshop" className="nav-link" onClick={closeMenu}>
+          <NavLink to="/propose-workshop" className={getNavClass} onClick={closeMenu}>
             Propose Workshop
           </NavLink>
         </nav>
